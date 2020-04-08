@@ -44,14 +44,17 @@ function computerPlay() {
 
  function game() {
    let counter = 0;
-   //for (let i = 0; i < 5; i++) {
-    let playerSelection = "";
+   let playerSelection = Array.from(buttons).forEach((button)=>{
+      button.addEventListener("click", () => {
+        playerSelect(button);
+      });
+   });
 
+   let computerSelection = computerPlay();
 
-     let computerSelection = computerPlay();
-     singleResult = singleRound(playerSelection, computerSelection);
-     console.log(singleResult)
-     counter += singleResult;
+   singleResult = singleRound(playerSelection, computerSelection);
+   console.log(singleResult)
+  counter += singleResult;
    }
    if (counter > 0){
      return "You are the Winner!";
@@ -67,19 +70,32 @@ function computerPlay() {
 
 //button logic (own func?)
  const button_rock = document.querySelector("#Rock");
- const button_scissors = document.querySelector("#Scissors");
+ let button_scissors = document.querySelector("#Scissors");
  const button_paper = document.querySelector("Paper");
  const buttons = document.getElementsByClassName("btn");
+ function changeBackground(elem){
+   elem.style.backgroundColor = "white";
+ }
 
-
- buttons.forEach((button)){
-   button.addEventListener("click", (e) => {
-     if (button == button_rock) {
-       playerSelection = "rock";
-     }
-     else if (button == button_scissors) {
-       playerSelection = "scissors";
-     }
-     else if (button == button_paper) {
-       playerSelection = "paper";
-   }); 
+ // button_rock.onclick = function() {
+ //   button_rock.style.backgroundColor = "white";
+ //   return false;
+ // };
+ //
+ // button_scissors.addEventListener("click", () => {
+ //   changeBackground(button_scissors)},
+ //   false);
+function playerSelect(button) {
+ if (button == button_rock) {
+   playerSelection = "rock";
+   //changeBackground(button_scissors);
+ }
+ else if (button == button_scissors) {
+   playerSelection = "scissors";
+   //console.log("scissors");
+ }
+ else if (button == button_paper) {
+   playerSelection = "paper";
+ }
+ return playerSelection;
+};
