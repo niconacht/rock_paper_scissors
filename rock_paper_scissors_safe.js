@@ -1,7 +1,6 @@
 
  //return randomly either Rock, Paper or Scissors
 
-
 function computerPlay() {
    const arr = ["rock", "paper", "scissors"];
    return arr[Math.floor(Math.random() * arr.length)];
@@ -44,10 +43,9 @@ function computerPlay() {
 
  function game() {
    let counter = 0;
-   //for (let i = 0; i < 5; i++) {
-    let playerSelection = "";
-
-
+   for (let i = 0; i < 5; i++) {
+    //let playerSelection = prompt("Rock, Paper, or Scissors?");
+     //playerSelection = playerSelection.toLowerCase();
      let computerSelection = computerPlay();
      singleResult = singleRound(playerSelection, computerSelection);
      console.log(singleResult)
@@ -64,22 +62,3 @@ function computerPlay() {
    }
  }
  console.log(game());
-
-//button logic (own func?)
- const button_rock = document.querySelector("#Rock");
- const button_scissors = document.querySelector("#Scissors");
- const button_paper = document.querySelector("Paper");
- const buttons = document.getElementsByClassName("btn");
-
-
- buttons.forEach((button)){
-   button.addEventListener("click", (e) => {
-     if (button == button_rock) {
-       playerSelection = "rock";
-     }
-     else if (button == button_scissors) {
-       playerSelection = "scissors";
-     }
-     else if (button == button_paper) {
-       playerSelection = "paper";
-   }); 
