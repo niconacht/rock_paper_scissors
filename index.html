@@ -8,26 +8,21 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-      <div class="container">
-        <h1>make your choice</h1> <!--toggle-->
+      <div class="wrapper">
+        <h1 id="title">make your choice</h1> <!--toggle-->
         <div class="container" id="game-display">
-          <p class="players">you</p>
-          <p class="players">comp</p>
+          <div class="players" id= "you">you</div>
+          <div class="players" id= "comp">comp</div>
         </div>
         <div class="container" id="buttons">
-          <div class="btn" id="rock">
-            <a href="" class="btn-text">rock</a>
-          </div>
-          <div class="btn" id="paper">
-            <a href="" class="btn-text">paper</a>
-          </div>
-          <div class="btn" id="scissors">
-              <a href="" class="btn-text">scissors</a>
-
+          <button type="button" class="btn" id="rock">rock
+          </button>
+          <button class="btn" id="paper">
+            paper</button>
+          <button class="btn" id="scissors">scissors</button>
           </div>
         </div>
       </div>
       <script src="rps.js"></script>
-      </main>
     </body>
 </html>
