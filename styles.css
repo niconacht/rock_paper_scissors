@@ -1,13 +1,18 @@
 * { padding: 0; margin: 0;}
 
+html {
+font-size: 100%;
+}
+
 h1 {
   text-align: center;
-  font-size: 4em;
+  font-size: 4rem;
   font-weight: 600;
-  padding: 5%;
+  padding: 1rem;
   margin: auto;
   align-items: center;
 }
+
 img {
   display: block;
 }
@@ -45,6 +50,7 @@ img {
 
 .players {
   font-size: 4em;
+  font-weight: 600;
   color: #fff;
   padding: 5%;
   display: grid;
@@ -82,7 +88,8 @@ img {
 /*media queries*/
 @media screen and (min-width: 750px) {
   h1{
-    font-size: 48px;
+    padding: 0;
+    font-size: 6rem;
   }
 
   .btn {
@@ -92,11 +99,21 @@ img {
     height: 120px;
     margin: 25px;
     display: inline-block;
-
   }
 
   .players {
     font-size: 36px;
+    display: inline-block;
+  }
+
+  .icon {
+    padding: 40px;
+    width: 150px;
+  }
+
+  #game-display {
+    display:block;
+    text-align: center;
   }
 
   #buttons{
