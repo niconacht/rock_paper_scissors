@@ -4,7 +4,7 @@
 
 h1 {
   text-align: center;
-  font-size: 5em;
+  /* font-size: calc(64px + (72 - 64) * ((100vw - 375px)/(1920 - 375))); */
   font-weight: 600;
   padding: 5vh;
 }
@@ -21,14 +21,13 @@ img {
   font-size: 2em;
   text-align: center;
   width: 5em;
-  height: 5em; 
+  height: 5em;
 }
 
 
 .wrapper {
   min-width: 100vw;
   min-height: 100vh;
-  font-size: 2vw;
   font-family: Helvetica;
   background-color: #5DF7C0;
   color: #11244A;
@@ -43,13 +42,11 @@ img {
 }
 
 .players {
-  font-size: 4em;
+  /* font-size: calc(48px + (56 - 48) * ((100vw - 375px)/(1920 - 375)));  */
   color: #fff;
-  border:
 }
 
 #game-display {
-
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   height: 40vh;

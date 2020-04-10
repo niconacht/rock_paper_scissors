@@ -4,19 +4,17 @@ var buttons = document.querySelectorAll(".btn").length;
 var counter = 0;
 var player = 0;
 var computer = 0;
+
+
 for (var i = 0; i < buttons; i++) {
   document.querySelectorAll(".btn")[i].addEventListener("click", singleRound);
-    }
-
-  // for (var j = 0; j < buttons; j++) {
-  //   document.querySelectorAll(".btn")[j].removeEventListener("click", singleRound);
-  // }
-
+}
 
 function singleRound(e) {
   const playerSelection = e.target.id;
   const computerSelection = computerPlay();
-
+  removeImages("you", "img");
+  removeImages("comp", "img");
   if (playerSelection === computerSelection) {
     document.getElementById("title").textContent = "Tie!";
     if(playerSelection == "scissors"){
@@ -69,16 +67,21 @@ function singleRound(e) {
     showImage("paper.svg", "paper", "you");
     computer++;
   }
-console.log(player);
-return false;
+  counter ++;
+  countPoints(player, computer);
+  finalWinner();
+  console.log(counter);
+  return false;
 }
 
-// function countPoints(player, computer) {
-//   document.getElementById("title").textContent = `${player}: ${computer}`;
-// }
+
+function countPoints(player, computer) {
+  document.getElementById("title").textContent = `${player}: ${computer}`;
+}
+
 
 function computerPlay() {
-   const arr = ["rock", "paper", "scissors"];
+   const arr = ["rock", " paper", "scissors"];
    return arr[Math.floor(Math.random() * arr.length)];
  }
 
@@ -92,19 +95,31 @@ function showImage(src, name, id) {
      document.getElementById(id).appendChild(img);
 }
 
-// const reset = document.querySelector(".reset-btn");
-// function resetRound(){
-//   location.reload()
-// }
-// //   reset.addEventListener('click', resetRound);
-//
-//   // if (result > 0) {
-//   //   document.getElementById("title").textContent = "You're the final Winner!";
-//   // }
-//   // else if (result == 0) {
-//   //   document.getElementById("title").textContent = "It's a tie";
-//   // }
-//   // else {
-//   //   document.getElementById("title").textContent = "You lost the game";
-//   // }
-// }
+function removeImages(parentNode, tag) {
+    // Removes an element from the document
+    var elements = document.getElementsByTagName(tag);
+    for (let j= 0; j< Array.from(elements).length; i++){
+      elements[j].parentNode.removeChild(elements[j]);
+    }
+
+}
+
+
+
+function finalWinner(){
+  if (counter >=5) {
+    for (var j = 0; j < buttons; j++) {
+      document.querySelectorAll(".btn")[j].removeEventListener("click", singleRound);
+    }
+
+    if (player > computer) {
+      document.getElementById("title").textContent = "You're the final Winner!";
+    }
+    else if (player < computer) {
+      document.getElementById("title").textContent = "You lost the game";
+    }
+    else {
+      document.getElementById("title").textContent = "It's a tie";
+    }
+  }
+}
