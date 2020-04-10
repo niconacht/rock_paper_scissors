@@ -18,53 +18,53 @@ function singleRound(e) {
   if (playerSelection === computerSelection) {
     document.getElementById("title").textContent = "Tie!";
     if(playerSelection == "scissors"){
-      showImage("sciss.svg", "scissors", "comp")
-      showImage("sciss.svg", "scissors", "you")
+      showImage("sciss.svg", "sciss", "you")
+      showImage("sciss.svg", "sciss", "comp")
     }
     else if (playerSelection == "rock") {
-      showImage("rock.svg", "rock", "you")
-      showImage("rock.svg", "rock", "comp")
+      showImage("rock.svg", "stone", "you")
+      showImage("rock.svg", "stone", "comp")
     }
     else if (playerSelection == "paper"){
-      showImage("paper.svg", "paper", "you")
-      showImage("paper.svg", "paper", "comp")
+      showImage("paper.svg", "pape", "you")
+      showImage("paper.svg", "pape", "comp")
     }
   }
 
   else if (playerSelection === "rock" && computerSelection === "scissors") {
     document.getElementById("title").textContent = "You win!";
-    showImage("sciss.svg", "scissors", "comp");
-    showImage("rock.svg", "rock", "you");
+    showImage("sciss.svg", "sciss", "comp");
+    showImage("rock.svg", "stone", "you");
     player++;
   }
   else if(playerSelection === "paper" && computerSelection === "rock") {
     document.getElementById("title").textContent = "You win!";
-    showImage("rock.svg", "rock", "comp");
-    showImage("paper.svg", "paper", "you");
+    showImage("rock.svg", "stone", "comp");
+    showImage("paper.svg", "pape", "you");
     player++;
   }
   else if (playerSelection === "scissors" && computerSelection === "paper") {
     document.getElementById("title").textContent = "You win!";
-    showImage("paper.svg", "paper", "comp");
-    showImage("sciss.svg", "scissors", "you");
+    showImage("paper.svg", "pape", "comp");
+    showImage("sciss.svg", "sciss", "you");
     player++;
   }
   else if (computerSelection === "rock" && playerSelection === "scissors") {
     document.getElementById("title").textContent = "You loose!";
-    showImage("rock.svg", "rock", "comp");
-    showImage("sciss.svg", "scissors", "you");
+    showImage("rock.svg", "stone", "comp");
+    showImage("sciss.svg", "sciss", "you");
     computer++;
   }
   else if(computerSelection === "paper" && playerSelection === "rock") {
     document.getElementById("title").textContent = "You loose!";
-    showImage("paper.svg", "paper", "comp");
-    showImage("rock.svg", "rock", "you");
+    showImage("paper.svg", "pape", "comp");
+    showImage("rock.svg", "stone", "you");
     computer++;
   }
   else if (computerSelection === "scissors" && playerSelection === "paper") {
     document.getElementById("title").textContent = "You loose!";
-    showImage("sciss.svg", "scissors", "comp");
-    showImage("paper.svg", "paper", "you");
+    showImage("sciss.svg", "sciss", "comp");
+    showImage("paper.svg", "pape", "you");
     computer++;
   }
   counter ++;
@@ -92,6 +92,7 @@ function showImage(src, name, id) {
      img.src = src;
      img.width = 100;
      img.id = name;
+     img.className = "icon";
      document.getElementById(id).appendChild(img);
 }
 

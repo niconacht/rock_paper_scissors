@@ -1,12 +1,12 @@
 * { padding: 0; margin: 0;}
 
-
-
 h1 {
   text-align: center;
-  /* font-size: calc(64px + (72 - 64) * ((100vw - 375px)/(1920 - 375))); */
+  font-size: 4em;
   font-weight: 600;
-  padding: 5vh;
+  padding: 5%;
+  margin: auto;
+  align-items: center;
 }
 img {
   display: block;
@@ -20,18 +20,20 @@ img {
   color:#11244A;
   font-size: 2em;
   text-align: center;
-  width: 5em;
-  height: 5em;
+  width: 4.5em;
+  height: 4.5em;
 }
 
 
 .wrapper {
   min-width: 100vw;
   min-height: 100vh;
+  font-size: 2vw;
   font-family: Helvetica;
   background-color: #5DF7C0;
   color: #11244A;
   display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr;
 
 }
 
@@ -42,24 +44,63 @@ img {
 }
 
 .players {
-  /* font-size: calc(48px + (56 - 48) * ((100vw - 375px)/(1920 - 375)));  */
+  font-size: 4em;
   color: #fff;
+  padding: 5%;
+  display: grid;
+}
+.players>p {
+  padding: 0.5em;
+}
+
+.icon {
+  padding: 0.5em;
+  text-align: center;
+  width: 2.3em;
 }
 
 #game-display {
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-  height: 40vh;
+  height: 30vh;
   /*border: 3px solid #fff;*/
   border-radius: 20px;
-  padding: 10% 10% 0 10%;
+  padding: 0.3em 0.3em 0 0.3em;
 
 }
 
 #buttons{
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  grid-gap: 12%;
-  padding: 10%;
+  align-items: center;
+  justify-items:center;
+  grid-gap: 10%;
+  padding: 0.5em;
 
+}
+
+/*media queries*/
+@media screen and (min-width: 750px) {
+  h1{
+    font-size: 48px;
+  }
+
+  .btn {
+    font-size: 28px;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    margin: 25px;
+    display: inline-block;
+
+  }
+
+  .players {
+    font-size: 36px;
+  }
+
+  #buttons{
+    display: block;
+    text-align: center;
+  }
 }
