@@ -139,11 +139,11 @@ function finalWinner(){
     else {
       document.getElementById("title").textContent = "It's a tie";
     }
-    for (var j = 0; j < buttons; j++) {
-      document.querySelectorAll(".btn")[j].removeEventListener("click", singleRound);
-      removeElements("button");
-      createReset();
-    }
+    // for (var j = 0; j < buttons; j++) {
+    //   document.querySelectorAll(".btn")[j].removeEventListener("click", singleRound);
+    //   removeElements("button");
+    //   createReset();
+    // }
   }
 
 }
