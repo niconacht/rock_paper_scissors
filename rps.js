@@ -11,27 +11,13 @@ for (var i = 0; i < buttons; i++) {
 }
 
 function singleRound(e) {
-  const playerSelection = e.target.id;
-  const computerSelection = computerPlay();
+  console.log("event heard");
   removeImages("you", "img");
   removeImages("comp", "img");
-  if (playerSelection === computerSelection) {
-    document.getElementById("title").textContent = "Tie!";
-    if(playerSelection == "scissors"){
-      showImage("sciss.svg", "sciss", "you")
-      showImage("sciss.svg", "sciss", "comp")
-    }
-    else if (playerSelection == "rock") {
-      showImage("rock.svg", "stone", "you")
-      showImage("rock.svg", "stone", "comp")
-    }
-    else if (playerSelection == "paper"){
-      showImage("paper.svg", "pape", "you")
-      showImage("paper.svg", "pape", "comp")
-    }
-  }
-
-  else if (playerSelection === "rock" && computerSelection === "scissors") {
+  const playerSelection = e.target.id;
+  const computerSelection = computerPlay();
+  console.log(computerSelection);
+  if (playerSelection === "rock" && computerSelection === "scissors") {
     document.getElementById("title").textContent = "You win!";
     showImage("sciss.svg", "sciss", "comp");
     showImage("rock.svg", "stone", "you");
@@ -67,6 +53,21 @@ function singleRound(e) {
     showImage("paper.svg", "pape", "you");
     computer++;
   }
+  else if (playerSelection == computerSelection) {
+    document.getElementById("title").textContent = "Tie!";
+    if(playerSelection == "scissors"){
+      showImage("sciss.svg", "sciss", "you");
+      showImage("sciss.svg", "sciss", "comp");
+    }
+    if (playerSelection == "rock") {
+      showImage("rock.svg", "stone", "you");
+      showImage("rock.svg", "stone", "comp");
+    }
+    if (playerSelection == "paper"){
+      showImage("paper.svg", "pape", "you");
+      showImage("paper.svg", "pape", "comp");
+    }
+  }
   counter ++;
   countPoints(player, computer);
   finalWinner();
@@ -81,23 +82,26 @@ function countPoints(player, computer) {
 
 
 function computerPlay() {
-   const arr = ["rock", " paper", "scissors"];
+   const arr = ["rock", "paper", "scissors"];
    return arr[Math.floor(Math.random() * arr.length)];
  }
 
 
-function showImage(src, name, id) {
+function showImage(src, id, parentId) {
      let img = document.createElement("img");
-     let parent = document.getElementById(id);
+     console.log("element created");
+     let parent = document.getElementById(parentId);
      img.src = src;
      img.width = 100;
-     img.id = name;
+     img.id = id;
      img.className = "icon";
-     document.getElementById(id).appendChild(img);
+     document.getElementById(parentId).appendChild(img);
+     console.log("element appended");
 }
 
 function removeImages(parentNode, tag) {
     // Removes an element from the document
+
     var elements = document.getElementsByTagName(tag);
     for (let j= 0; j< Array.from(elements).length; i++){
       elements[j].parentNode.removeChild(elements[j]);

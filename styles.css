@@ -1,18 +1,13 @@
 * { padding: 0; margin: 0;}
 
-html {
-font-size: 100%;
-}
+
 
 h1 {
   text-align: center;
-  font-size: 4rem;
+  font-size: 5em;
   font-weight: 600;
-  padding: 1rem;
-  margin: auto;
-  align-items: center;
+  padding: 5vh;
 }
-
 img {
   display: block;
 }
@@ -25,8 +20,8 @@ img {
   color:#11244A;
   font-size: 2em;
   text-align: center;
-  width: 4.5em;
-  height: 4.5em;
+  width: 5em;
+  height: 5em;
 }
 
 
@@ -38,7 +33,6 @@ img {
   background-color: #5DF7C0;
   color: #11244A;
   display: grid;
-  grid-template-columns: 1fr, 1fr, 1fr;
 
 }
 
@@ -50,13 +44,13 @@ img {
 
 .players {
   font-size: 4em;
-  font-weight: 600;
   color: #fff;
-  padding: 5%;
-  display: grid;
+  border:
 }
+
 .players>p {
   padding: 0.5em;
+  text-align: center;
 }
 
 .icon {
@@ -68,27 +62,24 @@ img {
 #game-display {
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-  height: 30vh;
+  height: 20vh;
   /*border: 3px solid #fff;*/
   border-radius: 20px;
-  padding: 0.3em 0.3em 0 0.3em;
+  padding: 5% 5% 0 5%;
 
 }
 
 #buttons{
-  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  justify-items:center;
-  grid-gap: 10%;
-  padding: 0.5em;
+  justify-items: center;
+  grid-gap: 12%;
+  padding: 10%;
 
 }
 
-/*media queries*/
 @media screen and (min-width: 750px) {
   h1{
-    padding: 0;
+    padding: 45px 0 45px 0;
     font-size: 6rem;
   }
 
@@ -102,13 +93,14 @@ img {
   }
 
   .players {
-    font-size: 36px;
+    font-size: 42px;
     display: inline-block;
+    padding: 0 60px ;
   }
 
   .icon {
     padding: 40px;
-    width: 150px;
+    width: 120px;
   }
 
   #game-display {
