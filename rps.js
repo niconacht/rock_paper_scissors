@@ -12,8 +12,8 @@ for (var i = 0; i < buttons; i++) {
 
 function singleRound(e) {
   console.log("event heard");
-  removeImages("you", "img");
-  removeImages("comp", "img");
+  removeElements("img");
+
   const playerSelection = e.target.id;
   const computerSelection = computerPlay();
   console.log(computerSelection);
@@ -89,8 +89,6 @@ function computerPlay() {
 
 function showImage(src, id, parentId) {
      let img = document.createElement("img");
-     console.log("element created");
-     let parent = document.getElementById(parentId);
      img.src = src;
      img.width = 100;
      img.id = id;
@@ -99,22 +97,46 @@ function showImage(src, id, parentId) {
      console.log("element appended");
 }
 
-function removeImages(parentNode, tag) {
-    // Removes an element from the document
+function createReset() {
+  let reset = document.createElement("button");
+  reset.className = "btn";
+  reset.textContent = "Once more!";
+  reset.id = "reset";
+  let parent = document.getElementById("buttons");
+  parent.style.display = "block";
+  parent.style.textAlign = "center";
+  document.getElementById("buttons").appendChild(reset);
+  console.log("resetButton");
+  reset.addEventListener("click", reloadPage, 2000);
+}
+function reloadPage(e) {
+  target = e.target.id;
+  if (target ==  "reset"){
+    location.reload();
+  }
+}
 
+
+function removeElements(tag) {
     var elements = document.getElementsByTagName(tag);
     for (let j= 0; j< Array.from(elements).length; i++){
       elements[j].parentNode.removeChild(elements[j]);
     }
-
 }
 
-
+function removeByClass(className) {
+    // Removes an element from the document
+    var element = document.getElementByClassName(className);
+    element.parentNode.removeChild(element);
+}
 
 function finalWinner(){
   if (counter >=5) {
     for (var j = 0; j < buttons; j++) {
       document.querySelectorAll(".btn")[j].removeEventListener("click", singleRound);
+      removeElements("button");
+      createReset();
+
     }
 
     if (player > computer) {
